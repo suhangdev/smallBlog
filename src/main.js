@@ -2,18 +2,11 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import VueResource from 'vue-resource'
 import App from './App.vue'
+import router from './router/router'
 
-import signin from './components/admin/signin.vue'
-
-import article from './components/article.vue'
-import about from './components/about.vue'
-import articleDetail from './components/articleDetail.vue'
-import articleList from './components/admin/articleList.vue'
-import articleEdit from './components/admin/articleEdit.vue'
 
 Vue.use(VueRouter)
 Vue.use(VueResource)
-
 // 按需引用element
 import { Button, Message, MessageBox, Notification, Popover, Tag, Input } from 'element-ui'
 import 'element-ui/lib/theme-default/index.css'
@@ -31,18 +24,7 @@ Vue.prototype.$prompt = MsgBox.prompt
 Vue.prototype.$message = Message
 Vue.prototype.$notify = Notification
 
-const router = new VueRouter({
-  routes: [
-    {path: '/', component: article},
-    {path: '/article', component: article},
-    {path: '/about', component: about},
-    {path: '/articleDetail/:id', component: articleDetail},
-    {path: '/admin/articleList', component: articleList},
-    {path: '/admin/articleEdit', component: articleEdit},
-    {path: '/admin/articleEdit/:id', component: articleEdit},
-    {path: '/admin/signin', component: signin}
-  ]
-})
+
 
 new Vue({
   el: '#app',

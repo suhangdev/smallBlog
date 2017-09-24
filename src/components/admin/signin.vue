@@ -20,35 +20,35 @@
     },
     methods: {
       signup: function () {
-        let _this = this;
+        let that = this;
         if (this.name.length < 6) {
-          this.$message.error('用户名不能为空或小于六个字符')
+          this.$message.error('用户名不能为空或小于六个字符');
           return
         }
 
         if (this.password.length < 6) {
-          this.$message.error('密码不能为空或小于六个字符')
+          this.$message.error('密码不能为空或小于六个字符');
           return
         }
 
         this.$http.get('/api/admin/getUser/' + this.name).then(
           response => {
             if (response.body.name === _this.name) {
-              _this.$message.error('该用户已存在')
-              _this.name = '';
+              that.$message.error('该用户已存在');
+              that.name = '';
               // 由于异步，name的改变比正常流执行得慢，所以不能通过判断name去执行是否post
               // 所以我把post移入else中，而不是在外面通过判断name执行
             } else {
               let obj = {
-                name: _this.name,
-                password: _this.password
-              }
+                name: that.name,
+                password: that.password
+              };
 
-              _this.$http.post('/api/admin/signup', {
+              that.$http.post('/api/admin/signup', {
                 userInfo: obj
               }).then(
                 response => {
-                  _this.$message({
+                  that.$message({
                     message: '注册成功',
                     type: 'success'
                   })
@@ -61,43 +61,44 @@
         )
       },
       signin: function () {
-        let _this = this;
+        let that = this;
         if (this.name.length < 6) {
-          this.$message.error('用户名不能为空或小于六个字符')
+          this.$message.error('用户名不能为空或小于六个字符');
           return
         }
 
         if (this.password.length < 6) {
-          this.$message.error('密码不能为空或小于六个字符')
+          this.$message.error('密码不能为空或小于六个字符');
           return
         }
 
         this.$http.get('/api/admin/getUser/' + this.name).then(
           response => {
-            if (_this.password !== response.body.password) {
-              _this.$message.error('用户名或密码不正确')
+            if (that.password !== response.body.password) {
+              that.$message.error('用户名或密码不正确')
             } else {
               let obj = {
-                name: _this.name,
-                password: _this.password
-              }
-              _this.$http.post('/api/admin/signin', {
+                name: that.name,
+                password: that.password
+              };
+              that.$http.post('/api/admin/signin', {
                 userInfo: obj
               }).then(
                 response => {
-                  _this.$message({
+                  that.$message({
                     message: '登录成功',
                     type: 'success'
-                  })
-                  delete _this.password;
-                  _this.$router.go(-1)
+                  });
+                  delete that.password;
+                  sessionStorage.setItem('username',that.name);
+                  that.$router.push({path: '/'});
                 },
                 response => console.log('登录失败'+response)
               )
             }
           },
           response => {
-            _this.$message.error('该用户不存在')
+            that.$message.error('该用户不存在');
             return
           }
         )

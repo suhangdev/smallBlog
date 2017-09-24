@@ -1,11 +1,11 @@
-const mongoose = require('mongoose')
+const mongoose = require('mongoose');
 
 mongoose.connect('mongodb://localhost:27017/blog')
 
 const userSchema = new mongoose.Schema({
   name: String,
   password: String
-})
+});
 
 const articleSchema = new mongoose.Schema({
   title: String,

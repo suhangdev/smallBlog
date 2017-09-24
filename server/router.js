@@ -1,12 +1,17 @@
 const express = require('express')
 const router = express.Router()
 const db = require('./db')
-const check = require('./check')
-const checkLogin = check.checkLogin
-const checkNotLogin = check.checkNotLogin
+const jwt = require('jsonwebtoken')
+const sha1 = require('sha1')
 
+const creatToken = (id,name) => {
+  return jwt.sign({
+    id: id,
+    name: name
+  },'secret',{expiresIn: '7d'})
+};
 
-// 储存用户名密码
+// 注册
 router.post('/api/admin/signup',(req, res) => {
   new db.User(req.body.userInfo).save( err => {
     if (err) {
@@ -18,10 +23,10 @@ router.post('/api/admin/signup',(req, res) => {
 })
 
 // 登录
+
 router.post('/api/admin/signin', (req, res) => {
-  req.session.user = req.body.userInfo
   res.send()
-})
+});
 
 // 根据用户名获取用户
 router.get('/api/admin/getUser/:name', function (req, res) {

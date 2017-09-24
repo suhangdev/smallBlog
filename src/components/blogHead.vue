@@ -2,17 +2,17 @@
   <div>
     <div id="nav">
       <ul>
-        <router-link to="/article">
+        <router-link to="/">
           <li><span>Blog</span></li>
         </router-link>
-        <router-link to="/admin/signin">
-          <li><span>login</span></li>
-        </router-link>
         <router-link to="/admin/articleEdit">
-          <li><span>write</span></li>
+          <li><span>Write</span></li>
+        </router-link>
+        <router-link to="/admin/articleList">
+          <li><span>Manage</span></li>
         </router-link>
         <router-link to="/about">
-          <li><span>about</span></li>
+          <li><span>About</span></li>
         </router-link>
       </ul>
     </div>
@@ -74,7 +74,7 @@
   }
 @media screen and (max-width: 640px){
     #logo{
-      margin: 80px 0;
+      margin: 80px 0 40px 0;
     }
 
     #logo img{
