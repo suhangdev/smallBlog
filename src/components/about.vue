@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div>666</div>
+
   </div>
 </template>
 

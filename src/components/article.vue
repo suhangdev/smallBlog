@@ -61,6 +61,7 @@
   transition: all .4s cubic-bezier(.25,.8,.25,1);
   transition-property: box-shadow;
   overflow: hidden;
+  animation: see1 1s;
 }
 #list li:hover {
   box-shadow: 0 5px 5px -3px rgba(0, 0, 0, .2),
@@ -103,11 +104,21 @@
   word-break: keep-all;
   overflow: hidden;
 }
+@keyframes see1{
+  from {opacity: 0; transform: translateX(50px);}
+  to {opacity: 1}
+}
 
+@keyframes see2{
+  from {opacity: 0; transform: translateY(-50px);}
+  to {opacity: 1}
+}
 
 @media screen and (max-width: 400px){
   #list li{
     width: 300px;
+    animation: see2 1s;
   }
+
 }
 </style>

@@ -31,7 +31,7 @@
 <style scoped>
   #nav{
     position: fixed;
-    margin-top: -80px;
+    margin-top: -100px;
     font-size: 16px;
     width: 100%;
     height: 50px;
@@ -48,6 +48,7 @@
     text-align: center;
     line-height: 50px;
     font-weight: 600;
+    animation: see 1s;
   }
 
   #nav span{
@@ -65,12 +66,21 @@
     color: #54c2ef;
   }
   #logo{
-    margin: 80px 0;
+    margin: 100px 0;
   }
   #logo img{
     height: 130px;
     width: 556px;
     margin-left: 20px;
+    animation: welcome 1s;
+  }
+  @keyframes welcome {
+    from {opacity: 0;transform: translateY(-50px);}
+    to {opacity: 1;}
+  }
+  @keyframes see{
+    from {opacity: 0; transform: translateX(50px);}
+    to {opacity: 1}
   }
 @media screen and (max-width: 640px){
     #logo{
@@ -80,6 +90,7 @@
     #logo img{
       height: 50px;
       width: 250px;
+      animation: welcome 2s;
     }
 
     #nav{

@@ -1,10 +1,12 @@
 <template>
   <div id="signin">
-    <h1>登录</h1>
+    <h1>login</h1>
     <el-input class="name" v-model="name" placeholder="请输入用户名"></el-input>
     <el-input class="psw" v-model="password" placeholder="请输入密码" type="password"></el-input>
+    <!--
     <el-button @click="signup" size="large">注册</el-button>
-    <el-button type="primary" @click="signin" size="large">登录</el-button>
+    -->
+    <el-button id="login" type="primary" @click="signin" size="large">登录</el-button>
   </div>
 </template>
 
@@ -19,6 +21,7 @@
       }
     },
     methods: {
+        /*
       signup: function () {
         let that = this;
         if (this.name.length < 6) {
@@ -33,11 +36,9 @@
 
         this.$http.get('/api/admin/getUser/' + this.name).then(
           response => {
-            if (response.body.name === _this.name) {
+            if (response.body.name === that.name) {
               that.$message.error('该用户已存在');
               that.name = '';
-              // 由于异步，name的改变比正常流执行得慢，所以不能通过判断name去执行是否post
-              // 所以我把post移入else中，而不是在外面通过判断name执行
             } else {
               let obj = {
                 name: that.name,
@@ -60,6 +61,7 @@
           response => console.log(response)
         )
       },
+      */
       signin: function () {
         let that = this;
         if (this.name.length < 6) {
@@ -107,11 +109,12 @@
   }
 </script>
 
-<style scoped="">
+<style scoped>
 #signin{
   max-width: 300px;
   margin: 0 auto;
   margin-top: 100px;
+  animation: cont 1s;
 }
 
 #signin h1{
@@ -129,9 +132,18 @@
 .psw{
   margin-bottom: 25px;
 }
-#signin button{
+#login{
+  width: 300px;
+  border-radius: 20px;
+}
+/*#signin button{
   margin: 0 20px;
 }
+*/
+@keyframes cont {
+  from {opacity: 0; transform: translateY(300px);}
+}
+
 @media screen and (max-width: 640px){
   #signin{
     margin-top: 50px;

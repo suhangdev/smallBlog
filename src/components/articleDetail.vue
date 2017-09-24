@@ -44,6 +44,7 @@
   width: 800px;
   margin: 0 auto;
   text-align: center;
+  animation: cont 1s;
 }
 .article{
   padding-bottom: 30px;
@@ -74,18 +75,31 @@
 .content{
   padding: 0  30px;
 }
+
+@keyframes cont {
+  from {opacity: 0; transform: translateY(300px);}
+}
 @media screen and (max-width: 800px){
   #content{
+    margin: 0 auto;
     width: 600px;
+  }
+}
+@media screen and (max-width: 700px){
+  #content{
+    margin: 0 auto;
+    width: 500px;
   }
 }
 @media screen and (max-width: 600px){
   #content{
+    margin: 0 auto;
     width: 400px;
   }
 }
-@media screen and (max-width: 400px){
+@media screen and (max-width: 500px){
   #content{
+    margin: 0 auto;
     width: 300px;
   }
 }

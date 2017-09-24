@@ -8,6 +8,7 @@ const app = express()
 const resolve = file => path.resolve(__dirname, file)
 
 app.use('/dist', express.static(resolve('./dist')))
+app.use(express.static('dist'))
 app.use(bodyParse.json())
 app.use(bodyParse.urlencoded({ extended: true }))
 app.use(router)
