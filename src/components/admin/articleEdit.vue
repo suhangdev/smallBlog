@@ -2,6 +2,7 @@
   <div>
     <div class="edit">
       <el-input class="title" v-model="title" placeholder="请输入标题"></el-input>
+      <el-input class="imgurl" v-model="img" placeholder="输入图片外链"></el-input>
       <el-input
         class="gist"
         type="textarea"
@@ -43,7 +44,8 @@
         title: '',
         date: '',
         content: '',
-        gist: ''
+        gist: '',
+        img: ''
       }
     },
     mounted: function () {
@@ -55,6 +57,7 @@
             this.date = article.date
             this.content = article.content
             this.gist = article.gist
+            this.img = article.img
           },
           response => console.log(response)
         )
@@ -105,6 +108,14 @@
           })
           return
         }
+        if (this.img.length === 0) {
+          this.$notify({
+            title: '提醒',
+            message: '请输入图片外链',
+            type: 'warning'
+          })
+          return
+        }
         if (this.gist.length === 0) {
           this.$notify({
             title: '提醒',
@@ -121,6 +132,7 @@
             date: this.date,
             content: this.content,
             gist: this.gist,
+            img: this.img
           }
           this.$http.post('/api/admin/updateArticle', {
             articleInformation: obj
@@ -144,6 +156,7 @@
             date: this.date,
             content: this.content,
             gist: this.gist,
+            img: this.img
           }
           this.$http.post('/api/admin/saveArticle', {
             articleInformation: obj
@@ -177,6 +190,9 @@
     margin: 0 auto;
   }
   .title{
+    padding: 30px 0 0 0;
+  }
+  .imgurl{
     padding: 30px 0 0 0;
   }
   .gist{

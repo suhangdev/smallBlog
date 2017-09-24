@@ -11,7 +11,8 @@ const articleSchema = new mongoose.Schema({
   title: String,
   date: String,
   content: String,
-  gist: String
+  gist: String,
+  img: String
 })
 
 const Models = {

@@ -2,7 +2,7 @@
   <div id="list">
     <ul>
       <li v-for="item in articleList" @click="articleDetail(item._id)">
-        <img src="../../static/bg.png">
+        <img :src="item.img">
         <div class="info">
           <div class="title">{{ item.title }}</div>
           <div class="date">
@@ -38,7 +38,7 @@
   }
 </script>
 
-<style>
+<style scoped>
 #list{
   margin: 0 auto;
   max-width: 1232px;
@@ -90,10 +90,10 @@
   line-height: 20px;
   letter-spacing: .01em;
   font-weight: 400;
-  margin-left: 3px;
 }
 
 .gist{
+  opacity: .54;
   height: 87px;
   text-align: left;
   padding: 0 16px 24px 16px;

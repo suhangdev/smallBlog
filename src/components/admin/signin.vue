@@ -1,8 +1,8 @@
 <template>
   <div id="signin">
     <h1>登录</h1>
-    <el-input v-model="name" placeholder="请输入用户名"></el-input>
-    <el-input v-model="password" placeholder="请输入密码" type="password"></el-input>
+    <el-input class="name" v-model="name" placeholder="请输入用户名"></el-input>
+    <el-input class="psw" v-model="password" placeholder="请输入密码" type="password"></el-input>
     <el-button @click="signup" size="large">注册</el-button>
     <el-button type="primary" @click="signin" size="large">登录</el-button>
   </div>
@@ -106,7 +106,7 @@
   }
 </script>
 
-<style>
+<style scoped="">
 #signin{
   max-width: 300px;
   margin: 0 auto;
@@ -116,12 +116,18 @@
 #signin h1{
   display: block;
   margin-bottom: 30px;
+  font-family: "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
 }
 #signin input{
   display: block;
   margin-bottom: 25px;
 }
-
+.name{
+  margin-bottom: 25px;
+}
+.psw{
+  margin-bottom: 25px;
+}
 #signin button{
   margin: 0 20px;
 }

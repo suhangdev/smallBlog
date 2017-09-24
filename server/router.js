@@ -18,8 +18,8 @@ router.post('/api/admin/signup',(req, res) => {
 })
 
 // 登录
-router.post('/api/admin/signin',  (req, res) => {
-  // req.session.user = req.body.userInfo
+router.post('/api/admin/signin', (req, res) => {
+  req.session.user = req.body.userInfo
   res.send()
 })
 
@@ -81,6 +81,7 @@ router.post('/api/admin/updateArticle', function (req, res) {
     docs[0].date = info.date
     docs[0].content = info.content
     docs[0].gist = info.gist
+    docs[0].img = info.img
     db.Article(docs[0]).save(function (err) {
       if (err) {
         res.status(500).send()

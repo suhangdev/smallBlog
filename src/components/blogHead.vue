@@ -58,11 +58,11 @@
   }
   #nav span:focus{
     background-color: #ecebe7;
-    color: #ea6f5a;
+    color: #54c2ef;
   }
 
   #nav span:hover{
-    color: #ea6f5a;
+    color: #54c2ef;
   }
   #logo{
     margin: 80px 0;

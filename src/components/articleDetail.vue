@@ -46,6 +46,7 @@
   text-align: center;
 }
 .article{
+  padding-bottom: 30px;
   text-align: left;
   border-radius: 4px;
   background-color: #fff;
@@ -71,7 +72,7 @@
   font-weight: 400;
 }
 .content{
-  padding: 0 30px;
+  padding: 0  30px;
 }
 @media screen and (max-width: 800px){
   #content{
